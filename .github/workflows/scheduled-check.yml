@@ -1,0 +1,17 @@
+name: 04-Scheduled-Trigger
+
+on:
+  schedule:
+    # This tells the robot to wake up every 15 minutes
+    # Minute Hour Day Month Day-of-Week
+    - cron: '*/15 * * * *'
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Routine Security Scan
+        run: |
+          echo "Robot is performing its scheduled maintenance..."
+          echo "Current time is: $(date)"
+          echo "System status: Healthy ✅"
